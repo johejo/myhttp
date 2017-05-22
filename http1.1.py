@@ -54,8 +54,9 @@ def main():
                 data = sock.recv(1)
                 if (data == '\r') :
                     read = 1
+
                 line = line + data
-                # print (line)
+
                 if (read == 1 and data == '\n'):
                     break
 
@@ -82,6 +83,7 @@ def main():
                 sys.stderr.write('Cannot receive \'HTTP/1.1 200 OK\'\n')
                 exit()
 
+            #get length
             if ('Content-Length: ' in line):
                 index = line.rfind('Content-Length: ');
                 tmp = line[index+len('Content-Length: '):]
