@@ -32,7 +32,7 @@ def main():
         sock.connect(address)
 
         #set message
-        message = 'GET {0} HTTP/1.0\r\n\r\n'.format(file_path)
+        message = 'GET {0} HTTP/1.0\r\nHost: {1}\r\n\r\n'.format(file_path, domain)
 
         #send message
         sock.sendall(message.encode())
